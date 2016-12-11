@@ -1,3 +1,4 @@
+package contracttest;
 
 import interfaces.CustomerInterface;
 

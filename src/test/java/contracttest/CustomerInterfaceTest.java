@@ -1,6 +1,10 @@
+package contracttest;
 
+
+import generalstuff.LineSummary;
 import generalstuff.ReservationDetail;
 import generalstuff.ReservationIdentifier;
+import java.util.Collection;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import org.junit.After;
@@ -15,12 +19,13 @@ public class CustomerInterfaceTest {
   
 
     @Test
-  public void testGetReservation() {
+  public void testGetLines() {
     assumeThat(CustomerInterfaceHolder.customerInterface, not(nullValue()));
     
-    ReservationDetail detail =
-        CustomerInterfaceHolder.customerInterface.getReservation(new ReservationIdentifier(1));    
-    assertThat(detail, not(nullValue()));
+    Collection<LineSummary> lines =
+        CustomerInterfaceHolder.customerInterface.getLines();    
+    assertThat(lines, not(nullValue()));
+    assertThat(lines.size(),not(0));
     }
   
   
